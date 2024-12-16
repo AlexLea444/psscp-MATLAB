@@ -21,7 +21,8 @@ theta = 0;
 
 while true
     try
-        [r, theta] = dbscan_test(R, M, delta);
+        [x, y] = dbscan_global_position(R, M, delta);
+        %[r, theta] = dbscan_test(R, M, delta);
         %theta = theta + 10;
         %pause(0.01);
     catch

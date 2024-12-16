@@ -9,20 +9,22 @@ disp("Starting TCP Server. Awaiting handshake...");
 while t.NumBytesAvailable == 0
     pause(0.01);  % Wait for incoming data
 end
-confirmation = readline(t);  % Read the client's confirmation message
+readline(t)  % Read the client's confirmation message
 
 R = 1000;
 M = 200 + R;
 delta = 200;
 
 r = 0;
+%r = 500;
 theta = 0;
 
 while true
     try
+        [x, y] = dbscan_global_position(R, M, delta);
         %[r, theta] = dbscan_test(R, M, delta);
-        theta = theta + 10;
-        pause(0.01);
+        %theta = theta + 10;
+        %pause(0.01);
     catch
         warning('Participant not found.');
     end

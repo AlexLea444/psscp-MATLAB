@@ -31,6 +31,11 @@ while true
     
     % Send data as JSON
     jsonData = jsonencode(struct('radius', r, 'angle', theta));
+
+    % COMMENT IN FOR AUDIO DATA SENDING PROTO
+    % pause(2)
+    % jsonData = jsonencode(struct('sounddegree', randi([0, 360])));
+
     jsonBytes = uint8([jsonData, newline]);
     write(t, jsonBytes); % Send as newline-terminated string
 end
